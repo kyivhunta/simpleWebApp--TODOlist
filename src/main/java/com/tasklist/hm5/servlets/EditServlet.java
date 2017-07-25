@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "EditServlet", urlPatterns = "/edit")
+@WebServlet(name = "EditServlet", urlPatterns = "/edit", loadOnStartup = 1)
 public class EditServlet extends HttpServlet {
 
     private DaoTask daoTask;

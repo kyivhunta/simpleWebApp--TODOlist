@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "MainServlet", urlPatterns = "/taskevent")
+@WebServlet(name = "MainServlet", urlPatterns = "/taskevent", loadOnStartup = 1)
 public class MainServlet extends HttpServlet {
 
     private DaoTask daoTask;

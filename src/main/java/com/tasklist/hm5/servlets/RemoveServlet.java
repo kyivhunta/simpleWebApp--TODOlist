@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "RemoveServlet", urlPatterns = "/delete")
+@WebServlet(name = "RemoveServlet", urlPatterns = "/delete", loadOnStartup = 1)
 public class RemoveServlet extends HttpServlet {
 
     private DaoTask daoTask;
