@@ -16,9 +16,8 @@ public class HibernateUtil {
 
     static {
         try {
-            File file = new File("D:\\GoJava#6\\JavaEE\\TODO List\\src\\rescources\\hibernate.cfg.xml");
             Configuration configuration = new Configuration();
-            configuration.configure(file);
+            configuration.configure("hibernate.cfg.xml");
 
             ourSessionFactory = configuration.buildSessionFactory();
         } catch (Throwable ex) {

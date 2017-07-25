@@ -4,7 +4,6 @@ import com.tasklist.hm5.dao.DaoTask;
 import com.tasklist.hm5.dao.DaoTaskImpl;
 import com.tasklist.hm5.entity.Task;
 
-import javax.jws.WebMethod;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
