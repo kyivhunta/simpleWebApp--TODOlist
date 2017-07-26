@@ -1,10 +1,11 @@
 package com.tasklist.hm5.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @NamedQuery(name = "allTasks", query = "select task from Task AS task")
-public class Task {
+public class Task implements Serializable {
     private int id;
     private String name;
     private String desription;

@@ -28,7 +28,7 @@
 <div style="width: 700px">
     <c:if test="${empty allTasks}"><h2 align="center">You don't have any tasks!</h2></c:if>
     <c:if test="${!empty allTasks}">
-    <h2 align="center">Your task</h2>
+    <h2 align="center">Your MySQL task</h2>
     <table style="border: solid" width="700">
 
             <tr>

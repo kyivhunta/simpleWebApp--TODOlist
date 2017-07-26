@@ -3,31 +3,68 @@
 <head>
     <title>Start Page</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" charset="UTF-8">
+    <style>
+        .div1 {
+            width: 49%;
+            border-right: solid 1px #8bafe4;
+        }
+
+        .div2 {
+            margin-right: 5%
+        }
+
+    </style>
 </head>
-<body>
-<h1>Make your TODO list</h1>
-<div style="width: 430px">
-    <form method="post" action="taskevent">
+<body style="background-color: gainsboro">
+<div>
+    <div class="div1" style="float: left">
+        <h1 align="center">Make your TODO list with MySQL DB</h1>
+        <form method="post" action="taskevent">
 
-        <table>
-            <tr>
-                <td>ENTER TASK NAME:</td>
-                <td><input type="text" name="name" style="width: 250px"></td>
-            </tr>
-            <tr>
-                <td>ENTER DISCRIPTION:</td>
-                <td><input type="text" name="description" style="width: 250px"></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="CREATE" style="margin-top: 15px">
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td>ENTER TASK NAME:</td>
+                    <td><input type="text" name="name" style="width: 250px"></td>
+                </tr>
+                <tr>
+                    <td>ENTER DISCRIPTION:</td>
+                    <td><input type="text" name="description" style="width: 250px"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="CREATE" style="margin-top: 15px">
+                    </td>
+                </tr>
+            </table>
 
-        <div align="right"><a href="/taskevent">Show all tasks</a></div>
+            <div class="div2" align="right"><a href="/taskevent">Show all tasks</a></div>
 
-    </form>
+        </form>
+    </div>
+    <div style="float: right; width: 50%;">
+        <h1 align="center">Make your TODO list with Http session</h1>
+        <form method="post" action="session_main">
+
+            <table>
+                <tr>
+                    <td>ENTER TASK NAME:</td>
+                    <td><input type="text" name="name" style="width: 250px"></td>
+                </tr>
+                <tr>
+                    <td>ENTER DISCRIPTION:</td>
+                    <td><input type="text" name="description" style="width: 250px"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="CREATE" style="margin-top: 15px">
+                    </td>
+                </tr>
+            </table>
+
+            <div class="div2" align="right"><a href="/session_main">Show all tasks</a></div>
+
+        </form>
+    </div>
 </div>
 </body>
 </html>

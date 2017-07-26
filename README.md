@@ -1,5 +1,9 @@
 # simpleWebApp--TODOlist
 
+Two variants: 
+1. With help MySQL database
+2. With help http session 
+
 Used technologies:
 - Hibernate
 - MySQL
@@ -13,5 +17,5 @@ Rescources:
 - change settings hibernate.cfg.xml for your DB
 
 Need will download:
-- ApacheTomcat
+- ApacheTomcat9
 - MySQL(server, workbench(Optional))
