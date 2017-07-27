@@ -38,16 +38,16 @@
             <th>Operations</th>
             <th>Status</th>
         </tr>
-        <% int count = 0;%>
+
         <c:forEach items="${Tasks}" var="task">
             <h4>
                 <tr>
                     <td>${task.id}</td>
                     <td>${task.name}</td>
                     <td>${task.desription}</td>
-                    <td><a href="${pageContext.request.contextPath}/session_remove?taskid=${task.name}">Delete</a></td>
+                    <td><a href="${pageContext.request.contextPath}/session_remove?taskid=${task.id}">Delete</a></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/session_edit?task=${task.name}">
+                        <a href="${pageContext.request.contextPath}/session_edit?taskid=${task.id}">
                             <c:if test="${!task.done}">In progress</c:if>
                             <c:if test="${task.done}">Done</c:if>
                         </a>

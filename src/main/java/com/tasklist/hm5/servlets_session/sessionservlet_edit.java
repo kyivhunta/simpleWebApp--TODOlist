@@ -18,19 +18,17 @@ public class sessionservlet_edit extends HttpServlet{
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String taskID = request.getParameter("task");
+        int taskID = Integer.parseInt(request.getParameter("taskid"));
 
         HttpSession session = request.getSession(true);
 
         List<Task> taskList = ((List<Task>) session.getAttribute("Tasks"));
-
-        taskList.stream().filter(task -> task.getName().equals(taskID)).forEach(task -> {
+        taskList.stream().filter(task -> task.getId() == taskID).forEach(task -> {
             if (task.isDone()) task.setDone(false);
             else task.setDone(true);
         });
 
         session.setAttribute("Tasks", taskList);
-
         request.getRequestDispatcher("/session_main").forward(request, response);
 
     }

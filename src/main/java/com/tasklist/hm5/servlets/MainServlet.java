@@ -44,7 +44,6 @@ public class MainServlet extends HttpServlet {
         daoTask.create(task);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
-
         requestDispatcher.forward(req, resp);
 
     }

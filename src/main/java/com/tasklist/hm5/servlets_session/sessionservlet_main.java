@@ -58,7 +58,6 @@ public class sessionservlet_main extends HttpServlet {
         HttpSession session = req.getSession(true);
 
         List<Task> allTask = ((List<Task>) session.getAttribute("Tasks"));
-
         if (allTask == null) {
 
             allTask = new ArrayList<>();
@@ -68,7 +67,6 @@ public class sessionservlet_main extends HttpServlet {
         req.setAttribute("allTasks", allTask);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/page2.jsp");
-
         requestDispatcher.forward(req, resp);
 
     }

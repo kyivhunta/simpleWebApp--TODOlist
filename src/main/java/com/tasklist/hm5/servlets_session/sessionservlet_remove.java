@@ -13,21 +13,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@WebServlet(name = "session_remove",urlPatterns = "/session_remove",loadOnStartup = 1)
-public class sessionservlet_remove extends HttpServlet{
+@WebServlet(name = "session_remove", urlPatterns = "/session_remove", loadOnStartup = 1)
+public class sessionservlet_remove extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String taskid = request.getParameter("taskid");
+        int taskid = Integer.parseInt(request.getParameter("taskid"));
 
         HttpSession session = request.getSession(true);
 
         List<Task> taskList = ((List<Task>) session.getAttribute("Tasks"));
-
-        List<Task> collect = taskList.stream().filter(task -> !task.getName().equals(taskid)).collect(Collectors.toList());
+        List<Task> collect = taskList.stream().filter(task -> task.getId() != taskid).collect(Collectors.toList());
 
         session.setAttribute("Tasks", collect);
-
         request.getRequestDispatcher("/session_main").forward(request, response);
 
     }
