@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import static com.tasklist.hm5.servlets.EditServlet.TASKEVENT;
+
 
 @WebServlet(name = "RemoveServlet", urlPatterns = "/delete", loadOnStartup = 1)
 public class RemoveServlet extends HttpServlet {
@@ -32,7 +34,7 @@ public class RemoveServlet extends HttpServlet {
             daoTask.delete(task);
         }
 
-        request.getRequestDispatcher("/taskevent").forward(request, response);
+        request.getRequestDispatcher(TASKEVENT).forward(request, response);
 
     }
 

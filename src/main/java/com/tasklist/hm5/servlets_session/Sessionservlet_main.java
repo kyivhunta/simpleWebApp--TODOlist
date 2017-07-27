@@ -11,23 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
+import static com.tasklist.hm5.servlets_session.Sessionservlet_edit.*;
 import java.util.List;
 
 @WebServlet(name = "main",urlPatterns = "/session_main",loadOnStartup = 1)
-public class sessionservlet_main extends HttpServlet {
+public class Sessionservlet_main extends HttpServlet {
+
+    private static final String INDEX_HTML = "/index.html";
+    private static final String UTF_8 = "utf-8";
+    private static final String PAGE2_JSP = "/page2.jsp";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setCharacterEncoding("utf-8");
+        req.setCharacterEncoding(UTF_8);
 
         String name = req.getParameter("name");
         String description = req.getParameter("description");
 
         HttpSession session = req.getSession(true);
 
-        List<Task> taskList = ((List<Task>) session.getAttribute("Tasks"));
+        List<Task> taskList = ((List<Task>) session.getAttribute(TASKS));
 
         if (taskList == null) taskList = new ArrayList<>();
 
@@ -43,9 +47,9 @@ public class sessionservlet_main extends HttpServlet {
             taskList.add(task);
         }
 
-        session.setAttribute("Tasks", taskList);
+        session.setAttribute(TASKS, taskList);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(INDEX_HTML);
 
         requestDispatcher.forward(req, resp);
 
@@ -57,16 +61,14 @@ public class sessionservlet_main extends HttpServlet {
 
         HttpSession session = req.getSession(true);
 
-        List<Task> allTask = ((List<Task>) session.getAttribute("Tasks"));
+        List<Task> allTask = ((List<Task>) session.getAttribute(TASKS));
         if (allTask == null) {
 
             allTask = new ArrayList<>();
-            session.setAttribute("Tasks", allTask);
+            session.setAttribute(TASKS, allTask);
         }
 
-        req.setAttribute("allTasks", allTask);
-
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/page2.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(PAGE2_JSP);
         requestDispatcher.forward(req, resp);
 
     }

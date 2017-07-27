@@ -16,6 +16,10 @@ import java.util.List;
 @WebServlet(name = "MainServlet", urlPatterns = "/taskevent", loadOnStartup = 1)
 public class MainServlet extends HttpServlet {
 
+    private static final String UTF_8 = "utf-8";
+    private static final String INDEX_HTML = "/index.html";
+    private static final String PAGE_JSP = "/page.jsp";
+    private static final String ALL_TASKS = "allTasks";
     private DaoTask daoTask;
 
     @Override
@@ -29,7 +33,7 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.setCharacterEncoding("utf-8");
+        req.setCharacterEncoding(UTF_8);
 
         String name = req.getParameter("name");
         String description = req.getParameter("description");
@@ -43,7 +47,7 @@ public class MainServlet extends HttpServlet {
 
         daoTask.create(task);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.html");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(INDEX_HTML);
         requestDispatcher.forward(req, resp);
 
     }
@@ -54,9 +58,9 @@ public class MainServlet extends HttpServlet {
 
         List<Task> allTask = daoTask.getAllTask();
 
-        req.setAttribute("allTasks", allTask);
+        req.setAttribute(ALL_TASKS, allTask);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/page.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher(PAGE_JSP);
 
         requestDispatcher.forward(req, resp);
 

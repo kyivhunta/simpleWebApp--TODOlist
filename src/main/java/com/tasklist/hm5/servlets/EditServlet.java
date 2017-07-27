@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "EditServlet", urlPatterns = "/edit", loadOnStartup = 1)
 public class EditServlet extends HttpServlet {
 
+    public static final String TASKEVENT = "/taskevent";
     private DaoTask daoTask;
 
 
@@ -34,7 +35,7 @@ public class EditServlet extends HttpServlet {
 
         daoTask.update(task);
 
-        request.getRequestDispatcher("/taskevent").forward(request, response);
+        request.getRequestDispatcher(TASKEVENT).forward(request, response);
 
     }
 }

@@ -11,10 +11,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+import static com.tasklist.hm5.servlets_session.Sessionservlet_edit.*;
 
 
 @WebServlet(name = "session_remove", urlPatterns = "/session_remove", loadOnStartup = 1)
-public class sessionservlet_remove extends HttpServlet {
+public class Sessionservlet_remove extends HttpServlet {
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -25,8 +27,9 @@ public class sessionservlet_remove extends HttpServlet {
         List<Task> taskList = ((List<Task>) session.getAttribute("Tasks"));
         List<Task> collect = taskList.stream().filter(task -> task.getId() != taskid).collect(Collectors.toList());
 
-        session.setAttribute("Tasks", collect);
-        request.getRequestDispatcher("/session_main").forward(request, response);
+        session.setAttribute(TASKS, collect);
+
+        request.getRequestDispatcher(SESSION_MAIN).forward(request, response);
 
     }
 }

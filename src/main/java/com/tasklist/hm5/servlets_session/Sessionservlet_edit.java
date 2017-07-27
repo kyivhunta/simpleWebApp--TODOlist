@@ -14,7 +14,10 @@ import java.util.List;
 
 
 @WebServlet(name = "edit",urlPatterns = "/session_edit",loadOnStartup = 1)
-public class sessionservlet_edit extends HttpServlet{
+public class Sessionservlet_edit extends HttpServlet{
+
+    public static final String SESSION_MAIN = "/session_main";
+    public static final String TASKS = "Tasks";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -28,8 +31,8 @@ public class sessionservlet_edit extends HttpServlet{
             else task.setDone(true);
         });
 
-        session.setAttribute("Tasks", taskList);
-        request.getRequestDispatcher("/session_main").forward(request, response);
+        session.setAttribute(TASKS, taskList);
+        request.getRequestDispatcher(SESSION_MAIN).forward(request, response);
 
     }
 }
